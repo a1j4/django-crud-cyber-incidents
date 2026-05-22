@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar incidente</title>
+</head>
+<body>
+
+<h1>Eliminar incidente</h1>
+
+<p>¿Seguro que deseas eliminar "{{ incident.title }}"?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">
+        Sí, eliminar
+    </button>
+</form>
+
+<br>
+
+<a href="{% url 'incidents:detail' incident.pk %}">
+    Cancelar
+</a>
+
+</body>
+</html>

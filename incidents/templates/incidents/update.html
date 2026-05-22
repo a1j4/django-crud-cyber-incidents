@@ -1,0 +1,18 @@
+<h1>Editar incidente</h1>
+
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+<form method="POST">
+
+{% csrf_token %}
+
+{{form.as_p}}
+
+<button type="submit">
+
+Actualizar
+
+</button>
+
+</form>

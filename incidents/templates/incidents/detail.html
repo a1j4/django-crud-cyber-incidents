@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle incidente</title>
+</head>
+
+<body>
+
+<h1>{{ incident.title }}</h1>
+
+<p><strong>Descripción:</strong> {{ incident.description }}</p>
+
+<p><strong>Severidad:</strong> {{ incident.severity }}</p>
+
+<p><strong>Reportado:</strong> {{ incident.reported_at }}</p>
+
+<p><strong>Actualizado:</strong> {{ incident.updated_at }}</p>
+
+<p><strong>Resuelto:</strong> {{ incident.resolved }}</p>
+
+<br>
+
+<a href="{% url 'incidents:update' incident.pk %}">
+Editar
+</a>
+
+<br><br>
+
+<a href="{% url 'incidents:delete' incident.pk %}">
+Eliminar
+</a>
+
+<br><br>
+
+<a href="{% url 'incidents:home' %}">
+Volver
+</a>
+
+</body>
+</html>

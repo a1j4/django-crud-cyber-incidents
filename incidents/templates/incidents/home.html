@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Incident System</title>
+
+    <style>
+
+    body{
+        font-family:Arial;
+        background:#0f172a;
+        color:white;
+        max-width:900px;
+        margin:auto;
+        padding:20px;
+    }
+
+    h1{
+        color:#38bdf8;
+    }
+
+    .boton{
+        background:#38bdf8;
+        padding:10px;
+        text-decoration:none;
+        color:black;
+        border-radius:5px;
+        font-weight:bold;
+    }
+
+    .card{
+        background:#1e293b;
+        padding:15px;
+        margin-top:15px;
+        border-radius:8px;
+        border-left:5px solid #38bdf8;
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>🔐 Cyber Incident Report System</h1>
+
+<a class="boton"
+href="{% url 'incidents:create' %}">
+Nuevo incidente
+</a>
+
+{% for incident in incidents %}
+
+<div class="card">
+
+<h3>{{incident.title}}</h3>
+
+<p><b>Severidad:</b>
+{{incident.severity}}</p>
+
+<p><b>Fecha:</b>
+{{incident.reported_at}}</p>
+
+<p><b>Resuelto:</b>
+{{incident.resolved}}</p>
+
+</div>
+
+{% empty %}
+
+<p>No existen incidentes</p>
+
+{% endfor %}
+
+</body>
+</html>
