@@ -1,38 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Detalle incidente</title>
+
+<title>Detalle incidente</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+color:#38bdf8;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+border-left:5px solid #38bdf8;
+}
+
+.boton{
+
+background:#38bdf8;
+padding:10px;
+text-decoration:none;
+color:black;
+border-radius:5px;
+font-weight:bold;
+margin-right:10px;
+
+}
+
+.eliminar{
+
+background:#ef4444;
+color:white;
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>{{ incident.title }}</h1>
+<h1>🔐 Detalle del incidente</h1>
 
-<p><strong>Descripción:</strong> {{ incident.description }}</p>
+<div class="card">
 
-<p><strong>Severidad:</strong> {{ incident.severity }}</p>
+<h2>{{ incident.title }}</h2>
 
-<p><strong>Reportado:</strong> {{ incident.reported_at }}</p>
+<p><strong>Descripción:</strong>
+{{ incident.description }}</p>
 
-<p><strong>Actualizado:</strong> {{ incident.updated_at }}</p>
+<p><strong>Severidad:</strong>
+{{ incident.severity }}</p>
 
-<p><strong>Resuelto:</strong> {{ incident.resolved }}</p>
+<p><strong>Reportado:</strong>
+{{ incident.reported_at }}</p>
+
+<p><strong>Actualizado:</strong>
+{{ incident.updated_at }}</p>
+
+<p><strong>Resuelto:</strong>
+{{ incident.resolved }}</p>
+
+</div>
 
 <br>
 
-<a href="{% url 'incidents:update' incident.pk %}">
+<a class="boton"
+href="{% url 'incidents:update' incident.pk %}">
 Editar
 </a>
 
-<br><br>
-
-<a href="{% url 'incidents:delete' incident.pk %}">
+<a class="boton eliminar"
+href="{% url 'incidents:delete' incident.pk %}">
 Eliminar
 </a>
 
-<br><br>
-
-<a href="{% url 'incidents:home' %}">
+<a class="boton"
+href="{% url 'incidents:home' %}">
 Volver
 </a>
 

@@ -1,26 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Eliminar incidente</title>
+
+<title>Eliminar incidente</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    color:#ef4444;
+}
+
+.card{
+
+    background:#1e293b;
+    padding:20px;
+    border-radius:8px;
+    border-left:5px solid #ef4444;
+}
+
+button{
+
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.boton{
+
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    padding:10px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<h1>Eliminar incidente</h1>
+<h1>🗑️ Eliminar incidente</h1>
 
-<p>¿Seguro que deseas eliminar "{{ incident.title }}"?</p>
+<div class="card">
+
+<p>
+¿Seguro que deseas eliminar:
+<strong>"{{ incident.title }}"</strong>?
+</p>
 
 <form method="POST">
-    {% csrf_token %}
-    <button type="submit">
-        Sí, eliminar
-    </button>
+
+{% csrf_token %}
+
+<button type="submit">
+Sí, eliminar
+</button>
+
 </form>
 
 <br>
 
-<a href="{% url 'incidents:detail' incident.pk %}">
-    Cancelar
+<a class="boton"
+href="{% url 'incidents:detail' incident.pk %}">
+Cancelar
 </a>
+
+</div>
 
 </body>
 </html>

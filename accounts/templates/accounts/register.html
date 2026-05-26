@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | CyberLab</title>
+</head>
+<body>
+
+<h1>📝 Registro CyberLab</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Crear cuenta</button>
+</form>
+
+<p>
+    Ya tienes cuenta?
+    <a href="{% url 'accounts:login' %}">Login</a>
+</p>
+
+</body>
+</html>

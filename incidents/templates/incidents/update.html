@@ -1,18 +1,97 @@
-<h1>Editar incidente</h1>
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Editar incidente</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    color:#38bdf8;
+}
+
+input,
+textarea,
+select{
+
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:none;
+}
+
+button{
+
+    background:#38bdf8;
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.boton{
+
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    padding:10px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.error{
+
+    color:#ff6b6b;
+    margin-bottom:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>✏️ Editar incidente</h1>
 
 {% if form.errors %}
+
+<div class="error">
 {{ form.errors }}
+</div>
+
 {% endif %}
+
 <form method="POST">
 
 {% csrf_token %}
 
-{{form.as_p}}
+{{ form.as_p }}
 
 <button type="submit">
 
-Actualizar
+Actualizar incidente
 
 </button>
 
 </form>
+
+<br><br>
+
+<a class="boton"
+href="{% url 'incidents:home' %}">
+Volver
+</a>
+
+</body>
+</html>

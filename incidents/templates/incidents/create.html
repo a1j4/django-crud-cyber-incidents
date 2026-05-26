@@ -7,37 +7,47 @@
 <style>
 
 body{
-font-family:Arial;
-background:#0f172a;
-color:white;
-max-width:900px;
-margin:auto;
-padding:20px;
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
 }
 
-input,textarea,select{
+h1{
+    color:#38bdf8;
+}
 
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:5px;
+input,
+textarea,
+select{
+
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:none;
 }
 
 button{
 
-background:#38bdf8;
-padding:10px;
-border:none;
-border-radius:5px;
-font-weight:bold;
-cursor:pointer;
-
+    background:#38bdf8;
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-a{
+.boton{
 
-color:#38bdf8;
-
+    background:#38bdf8;
+    color:black;
+    text-decoration:none;
+    padding:10px;
+    border-radius:5px;
+    font-weight:bold;
 }
 
 </style>
@@ -46,25 +56,26 @@ color:#38bdf8;
 
 <body>
 
-<h1>Nuevo incidente</h1>
+<h1>➕ Nuevo incidente</h1>
 
 <form method="POST">
 
 {% csrf_token %}
 
-{{form.as_p}}
+{{ form.as_p }}
 
 <button type="submit">
 
-Guardar
+Guardar incidente
 
 </button>
 
 </form>
 
-<br>
+<br><br>
 
-<a href="{% url 'incidents:home' %}">
+<a class="boton"
+href="{% url 'incidents:home' %}">
 Volver
 </a>
 

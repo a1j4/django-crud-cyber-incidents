@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | CyberLab</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: #111827;
+            padding: 40px;
+            border-radius: 12px;
+            width: 320px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        input:focus {
+            border: 2px solid #38bdf8;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 6px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        .error {
+            color: #ff4d4d;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h1>🔐 CyberLab Login</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Usuario</label>
+        <input type="text" name="username" required>
+
+        <label>Contraseña</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Ingresar</button>
+    </form>
+
+    <div class="footer">
+        No tienes cuenta? <a href="{% url 'accounts:register' %}">Regístrate</a>
+    </div>
+
+</div>
+
+</body>
+</html>

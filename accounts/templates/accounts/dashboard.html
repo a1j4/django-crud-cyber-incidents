@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h1>📊 Dashboard CyberLab</h1>
+
+<p>Bienvenido: {{ request.user.username }}</p>
+
+<p>Rol: {{ profile.role }}</p>
+
+<h3>Mis incidentes:</h3>
+
+<ul>
+{% for incident in incidents %}
+    <li>{{ incident.title }}</li>
+{% empty %}
+    <li>No tienes incidentes</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
